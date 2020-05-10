@@ -27,6 +27,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    var availableBallsLabel: SKLabelNode!
+    var availableBalls: Int = 5 {
+        didSet {
+            availableBallsLabel.text = "Balls: \(availableBalls)"
+        }
+    }
+    
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background")
@@ -57,6 +64,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         editLabel.text = "Edit"
         editLabel.position = CGPoint(x: 80, y: 700)
         addChild(editLabel)
+        
+        availableBallsLabel = SKLabelNode(fontNamed: "Chalkduster")
+        availableBallsLabel.horizontalAlignmentMode = .right
+        availableBallsLabel.text = "Balls: 5"
+        availableBallsLabel.position = CGPoint(x: 980, y: 650)
+        addChild(availableBallsLabel)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -74,11 +87,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     box.zRotation = CGFloat.random(in: 0...3)
                     box.position = location
                     
+                    box.name = "box"
                     box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
                     box.physicsBody?.isDynamic = false
                     
                     addChild(box)
-                } else {
+                } else if availableBalls>0 {
                     let ball = SKSpriteNode(imageNamed: generateRandomBallColor())
                     ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                     ball.physicsBody?.contactTestBitMask = ball.physicsBody!.collisionBitMask
@@ -86,6 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     ball.position = CGPoint(x: location.x, y: 700)
                     ball.name = "ball"
                     addChild(ball)
+                    availableBalls -= 1
                 }
             }
         }
@@ -128,12 +143,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func collisionBetween(ball: SKNode, object: SKNode) {
-        if object.name == "good" {
+        
+        switch object.name {
+        case "good":
             destroy(ball: ball)
             score += 1
-        } else if object.name == "bad" {
+            availableBalls += 1
+        case "bad":
             destroy(ball: ball)
             score -= 1
+        case "box":
+            destroy(ball: object)
+        default:
+            return
         }
         
     }
