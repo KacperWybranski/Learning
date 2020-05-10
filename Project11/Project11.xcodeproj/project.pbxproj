@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5202D3142468320B0027E1BF /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5202D3132468320B0027E1BF /* FireParticles.sks */; };
+		5202D316246834D80027E1BF /* SmokePartciles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5202D315246834D80027E1BF /* SmokePartciles.sks */; };
 		52523E5124642424006B8435 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52523E5024642424006B8435 /* AppDelegate.swift */; };
 		52523E5324642424006B8435 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 52523E5224642424006B8435 /* GameScene.sks */; };
 		52523E5724642424006B8435 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52523E5624642424006B8435 /* GameScene.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5202D3132468320B0027E1BF /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = "<group>"; };
+		5202D315246834D80027E1BF /* SmokePartciles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SmokePartciles.sks; sourceTree = "<group>"; };
 		52523E4D24642424006B8435 /* Project11.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project11.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52523E5024642424006B8435 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52523E5224642424006B8435 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				52523E5D24642428006B8435 /* Assets.xcassets */,
 				52523E5F24642428006B8435 /* LaunchScreen.storyboard */,
 				52523E6224642428006B8435 /* Info.plist */,
+				5202D3132468320B0027E1BF /* FireParticles.sks */,
+				5202D315246834D80027E1BF /* SmokePartciles.sks */,
 			);
 			path = Project11;
 			sourceTree = "<group>";
@@ -130,6 +136,8 @@
 			files = (
 				52523E5C24642424006B8435 /* Main.storyboard in Resources */,
 				52523E5324642424006B8435 /* GameScene.sks in Resources */,
+				5202D3142468320B0027E1BF /* FireParticles.sks in Resources */,
+				5202D316246834D80027E1BF /* SmokePartciles.sks in Resources */,
 				52523E5E24642428006B8435 /* Assets.xcassets in Resources */,
 				52523E6124642428006B8435 /* LaunchScreen.storyboard in Resources */,
 			);
