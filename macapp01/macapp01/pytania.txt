@@ -1,2 +1,3 @@
 Ile to 2 + 2 x 2?|6|8|0
 Ile to 3 x 7 - 4?|19|17|1
+Jaka jest stolica Niemiec?|Berlin|Monachium|0

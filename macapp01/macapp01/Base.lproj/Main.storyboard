@@ -750,6 +750,18 @@
                                     <font key="font" metaFont="system" size="25"/>
                                 </buttonCell>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8dB-BD-nt5">
+                                <rect key="frame" x="18" y="360" width="74" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="7vf-xK-R4N"/>
+                                    <constraint firstAttribute="height" constant="20" id="Ciy-lZ-6P9"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" id="L8m-sW-dvv">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="BPC-5q-Zbd" firstAttribute="top" secondItem="pAD-6v-fPi" secondAttribute="bottom" constant="40" id="0Cj-a9-bgd"/>
@@ -759,7 +771,9 @@
                             <constraint firstItem="hg7-ql-PDN" firstAttribute="top" secondItem="BPC-5q-Zbd" secondAttribute="bottom" constant="60" id="SpY-uU-o57"/>
                             <constraint firstItem="w7Y-Y3-eZk" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="TGT-mk-aDj"/>
                             <constraint firstItem="pAD-6v-fPi" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="YLD-vG-6ff"/>
+                            <constraint firstItem="8dB-BD-nt5" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="YsC-gI-k4t"/>
                             <constraint firstItem="BPC-5q-Zbd" firstAttribute="leading" secondItem="w7Y-Y3-eZk" secondAttribute="trailing" constant="60" id="ac5-N5-VM4"/>
+                            <constraint firstItem="8dB-BD-nt5" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="cM3-eF-msy"/>
                             <constraint firstItem="hg7-ql-PDN" firstAttribute="centerX" secondItem="pAD-6v-fPi" secondAttribute="centerX" id="zDm-t4-Af8"/>
                         </constraints>
                     </view>
@@ -769,6 +783,8 @@
                         <outlet property="leftButton" destination="w7Y-Y3-eZk" id="kgd-Wm-vgy"/>
                         <outlet property="questionLabelText" destination="5l4-e4-5eM" id="Ubw-93-RLt"/>
                         <outlet property="rightButton" destination="BPC-5q-Zbd" id="dx7-hi-mC3"/>
+                        <outlet property="scoreLabel" destination="8dB-BD-nt5" id="J6m-md-q6o"/>
+                        <outlet property="scoreLabelText" destination="L8m-sW-dvv" id="Hul-cv-4YF"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

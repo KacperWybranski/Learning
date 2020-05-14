@@ -14,6 +14,12 @@ class ViewController: NSViewController {
     @IBOutlet var rightButton: NSButton!
     @IBOutlet var questionLabelText: NSTextFieldCell!
     @IBOutlet var endMessageLabelText: NSTextFieldCell!
+    @IBOutlet var scoreLabelText: NSTextFieldCell!
+    var score: Int = 0 {
+        didSet {
+            scoreLabelText.title = "Score: \(score)"
+        }
+    }
     
     var questionsFileLines = [String]()
     var allQuestions = [QuestionWithAnswers]()
@@ -23,6 +29,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        score = 0
         
         if let questionsFileURL = Bundle.main.url(forResource: "pytania", withExtension: ".txt") {
             if let questionsFile = try? String(contentsOf: questionsFileURL) {
@@ -71,12 +78,13 @@ class ViewController: NSViewController {
     @objc func buttonTapped(_ sender: NSButton) {
         if sender.tag == correctAnswerTag {
             endMessageLabelText.title = endTextsGood.randomElement() ?? "Nice :)"
+            score += 1
         } else {
             endMessageLabelText.title = endTextsBad.randomElement() ?? "Kiepsko :("
         }
         endMessageLabel.isHidden = false
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             self?.newGame()
         }
     }
