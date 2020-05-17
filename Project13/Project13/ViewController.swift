@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     var context: CIContext!
     var currentFilter: CIFilter!
+    @IBOutlet var changeFilterButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +65,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func save(_ sender: Any) {
-        guard let image = imageView.image else { return }
+        guard let image = imageView.image else {
+            let ac = UIAlertController(title: "Error", message: "There no image to save!", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+            return
+        }
         
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
@@ -93,6 +99,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         // safely read the alert action's title
         guard let actionTitle = action.title else { return }
+        
+        changeFilterButton.setTitle(actionTitle, for: .normal)
 
         currentFilter = CIFilter(name: actionTitle)
 
