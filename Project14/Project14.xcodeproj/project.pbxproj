@@ -15,6 +15,8 @@
 		52605C3724729C770084A856 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52605C3624729C770084A856 /* Assets.xcassets */; };
 		52605C3A24729C770084A856 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52605C3824729C770084A856 /* LaunchScreen.storyboard */; };
 		52605C572472A1C70084A856 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52605C562472A1C70084A856 /* WhackSlot.swift */; };
+		527A218F24746F6C0052ABAD /* SmokeEffect.sks in Resources */ = {isa = PBXBuildFile; fileRef = 527A218E24746F6C0052ABAD /* SmokeEffect.sks */; };
+		527A2195247470EA0052ABAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527A2193247470EA0052ABAD /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		52605C5224729E1B0084A856 /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 		52605C5324729E1B0084A856 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
 		52605C562472A1C70084A856 /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WhackSlot.swift; path = ../WhackSlot.swift; sourceTree = "<group>"; };
+		527A218E24746F6C0052ABAD /* SmokeEffect.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SmokeEffect.sks; sourceTree = "<group>"; };
+		527A2193247470EA0052ABAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,7 @@
 		52605C1D24729C720084A856 = {
 			isa = PBXGroup;
 			children = (
+				527A2193247470EA0052ABAD /* Assets.xcassets */,
 				52605C2824729C720084A856 /* Project14 */,
 				52605C2724729C720084A856 /* Products */,
 			);
@@ -66,6 +71,7 @@
 				52605C2924729C720084A856 /* AppDelegate.swift */,
 				52605C2B24729C720084A856 /* GameScene.sks */,
 				52605C2F24729C720084A856 /* GameScene.swift */,
+				527A218E24746F6C0052ABAD /* SmokeEffect.sks */,
 				52605C3124729C720084A856 /* GameViewController.swift */,
 				52605C3324729C720084A856 /* Main.storyboard */,
 				52605C3624729C770084A856 /* Assets.xcassets */,
@@ -137,6 +143,8 @@
 			files = (
 				52605C3524729C720084A856 /* Main.storyboard in Resources */,
 				52605C2C24729C720084A856 /* GameScene.sks in Resources */,
+				527A218F24746F6C0052ABAD /* SmokeEffect.sks in Resources */,
+				527A2195247470EA0052ABAD /* Assets.xcassets in Resources */,
 				52605C3724729C770084A856 /* Assets.xcassets in Resources */,
 				52605C3A24729C770084A856 /* LaunchScreen.storyboard in Resources */,
 			);

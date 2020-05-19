@@ -18,6 +18,7 @@ class GameScene: SKScene {
         }
     }
     var popupTime = 0.85
+    var numRounds: Int = 0
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "whackBackground")
@@ -26,7 +27,7 @@ class GameScene: SKScene {
         background.zPosition = -1
         addChild(background)
         
-        gameScore = SKLabelNode(fontNamed: "Chulkduster")
+        gameScore = SKLabelNode(fontNamed: "Chalkduster")
         gameScore.text = "Score: 0"
         gameScore.position = CGPoint(x: 8, y: 8)
         gameScore.horizontalAlignmentMode = .left
@@ -44,7 +45,36 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self)
+        let tappedNodes = nodes(at: location)
         
+        for node in tappedNodes {
+            guard let whackSlot = node.parent?.parent as? WhackSlot else { continue }
+            if !whackSlot.isVisible { continue }
+            if whackSlot.isHit { continue }
+            whackSlot.hit()
+            
+            if let smokeParticles = SKEmitterNode(fileNamed: "SmokeEffect.sks") {
+                smokeParticles.position = whackSlot.position
+                addChild(smokeParticles)
+            }
+            
+            if node.name == "charFriend" {
+                //they hit friendly penguin
+                score -= 5
+                
+                run(SKAction.playSoundFileNamed("whackBad.caf", waitForCompletion: false))
+            } else if node.name == "charEnemy" {
+                //they hit bad penguin
+                score += 1
+                
+                whackSlot.charNode.xScale = 0.85
+                whackSlot.charNode.yScale = 0.85
+                
+                run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
+            }
+        }
     }
     
     func createSlot(at position: CGPoint) {
@@ -56,6 +86,27 @@ class GameScene: SKScene {
     
     func createEnemy() {
         popupTime *= 0.991
+        
+        numRounds += 1
+        
+        if numRounds >= 10 {
+            for slot in slots {
+                slot.hide()
+            }
+            
+            let gameOver = SKSpriteNode(imageNamed: "gameOver")
+            gameOver.position = CGPoint(x: 512, y: 384)
+            gameOver.zPosition = 1
+            addChild(gameOver)
+            let scoreView = SKLabelNode(text: "Score: \(score)")
+            scoreView.fontSize = 60
+            scoreView.fontName = "Chalkduster"
+            scoreView.position = CGPoint(x: 512, y: 300)
+            scoreView.zPosition = 1
+            addChild(scoreView)
+            
+            return
+        }
         
         slots.shuffle()
         slots[0].show(hideTime: popupTime)
