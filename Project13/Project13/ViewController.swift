@@ -15,6 +15,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var currentImage: UIImage! {
         didSet {
             imageView.image = currentImage
+            UIView.animate(withDuration: 1, delay: 0.5, options: [], animations: {
+                self.imageView.alpha = 1
+            })
         }
     }
     var context: CIContext!
@@ -29,6 +32,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         context = CIContext()
         currentFilter = CIFilter(name: "CISepiaTone")
+        
+        imageView.alpha = 0
     }
     
     @objc func importPicture() {
