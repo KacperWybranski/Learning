@@ -1,0 +1,4 @@
+Chicken|20
+Hamburger|10
+Fruit Salat|15
+Cheese Burger|12

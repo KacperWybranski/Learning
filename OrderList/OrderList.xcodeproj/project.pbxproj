@@ -16,6 +16,7 @@
 		5252729524768755008DB876 /* RestaurantTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252729424768755008DB876 /* RestaurantTable.swift */; };
 		5252729724768AEA008DB876 /* CertainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5252729624768AEA008DB876 /* CertainTableViewController.swift */; };
 		525272992476A275008DB876 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525272982476A274008DB876 /* Order.swift */; };
+		525272CD2477BE66008DB876 /* dishes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 525272CC2477BE66008DB876 /* dishes.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		5252729424768755008DB876 /* RestaurantTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTable.swift; sourceTree = "<group>"; };
 		5252729624768AEA008DB876 /* CertainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertainTableViewController.swift; sourceTree = "<group>"; };
 		525272982476A274008DB876 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		525272CC2477BE66008DB876 /* dishes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dishes.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				5252728724768319008DB876 /* Assets.xcassets */,
 				5252728924768319008DB876 /* LaunchScreen.storyboard */,
 				5252728C24768319008DB876 /* Info.plist */,
+				525272CC2477BE66008DB876 /* dishes.txt */,
 			);
 			path = OrderList;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525272CD2477BE66008DB876 /* dishes.txt in Resources */,
 				5252728B24768319008DB876 /* LaunchScreen.storyboard in Resources */,
 				5252728824768319008DB876 /* Assets.xcassets in Resources */,
 				5252728624768317008DB876 /* Main.storyboard in Resources */,
