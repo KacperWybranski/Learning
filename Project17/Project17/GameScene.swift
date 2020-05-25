@@ -19,9 +19,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             scoreLabel.text = "Score: \(score)"
         }
     }
-    let possibleEnemies: [String] = ["ball","hummer","tv"]
+    let possibleEnemies: [String] = ["ball","hammer","tv"]
     var isGameOver = false
     var gameTimer: Timer?
+    var createdEnemies = 0
     
     override func didMove(to view: SKView) {
         backgroundColor = .black
@@ -48,7 +49,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsWorld.contactDelegate = self
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 0.35, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -62,7 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if !isGameOver {
-            score += 1
+                score += 1
         }
     }
     
@@ -80,6 +81,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
      }
     
     @objc func createEnemy() {
+        if isGameOver { return }
         guard let enemy = possibleEnemies.randomElement() else { return }
         
         let sprite = SKSpriteNode(imageNamed: enemy)
@@ -92,6 +94,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.angularVelocity = 5
         sprite.physicsBody?.linearDamping = 0
         sprite.physicsBody?.angularDamping = 0
+        
+        createdEnemies += 1
+        if createdEnemies > 4 {
+            createdEnemies = 0
+            
+            if let timeInterval = gameTimer?.timeInterval {
+                gameTimer?.invalidate()
+                gameTimer = Timer.scheduledTimer(timeInterval: timeInterval - 0.1, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+            }
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -102,5 +114,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.removeFromParent()
         
         isGameOver = true
+        
+        endTheGame()
     }
+    
+    func endTheGame() {
+        scoreLabel.position = CGPoint(x: 600, y: 384)
+        scoreLabel.horizontalAlignmentMode = .center
+        scoreLabel.fontSize = 90
+    }
+    
 }
